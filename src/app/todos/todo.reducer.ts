@@ -55,5 +55,9 @@ export const todoReducer = createReducer(
     });
     console.log('Estado después de toggle:', newState);
     return newState;
-  })
-);
+  }),
+
+  on(actions.limpiarTodos, (state) => {
+    return state.filter(todo => !todo.completado);
+  }),
+); 
